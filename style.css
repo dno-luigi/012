@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background-color: #ffffff;
+      color: #333333; /* Dark text in light mode */
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: #ffffff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .header {
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      background-color: transparent;
+    }
+
+    .header-icons {
+      display: flex;
+      justify-content: space-between;
+      width: 150px;
+      padding: 0 1rem;
+    }
+
+    .header-icons button {
+      background: none;
+      border: none;
+      color: #333333; /* Dark text in light mode */
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .header-icons button:hover {
+      color: #666666;
+      text-shadow: 0 0 10px rgba(102, 102, 102, 0.5);
+    }
+
+    .main {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background-color: #f4f4f4;
+      transition: background-color 0.3s ease;
+      color: #333333; /* Dark text in light mode */
+    }
+
+    .conversation {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      max-width: 75%;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      position: relative;
+      max-height: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: max-height 0.3s ease;
+      background-color: transparent;
+      border-radius: 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .user-message {
+      align-self: flex-start;
+      color: #333333; /* Dark text in light mode */
+    }
+
+    .ai-message {
+      align-self: flex-start;
+      color: #333333; /* Dark text in light mode */
+    }
+
+    .footer {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      position: sticky;
+      bottom: 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .message-input {
+      flex-grow: 1;
+      padding: 0.8rem 3rem 0.8rem 1.2rem;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background-color: transparent;
+      color: #333333; /* Dark text in light mode */
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .message-input::placeholder {
+      color: #666666; /* Dark placeholder in light mode */
+      content: '...as you wish';
+    }
+
+    .message-input:focus {
+      outline: none;
+      border-color: #a0aec0;
+    }
+
+    .talk-button {
+      background: none;
+      border: none;
+      color: #333333; /* Dark text in light mode */
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .talk-button:hover {
+      color: #2b6cb0;
+      text-shadow: 0 0 10px rgba(43, 108, 176, 0.5);
+    }
+
+    .applet {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #f4f4f4;
+      padding: 1rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      overflow-y: auto;
+      border-left: 1px solid #e2e8f0;
+    }
+
+    .applet.open {
+      transform: translateX(0);
+    }
+
+    .dark-mode .applet {
+      background-color: #000000; /* Black background in dark mode */
+      border-left: 1px solid #4a5568; /* Dark border */
+    }
+
+    .dark-mode .container {
+      background-color: #000000; /* Black background in dark mode */
+      color: #ffffff; /* Whiter text in dark mode */
+    }
+
+    .dark-mode .main {
+      background-color: #000000; /* Black background for main display in dark mode */
+      color: #ffffff; /* Whiter text in dark mode */
+    }
+
+    .dark-mode .header-icons button {
+      color: #ffffff; /* Whiter text in dark mode */
+    }
+
+    .dark-mode .header-icons button:hover {
+      color: #e2e8f0; /* Lighter text on hover in dark mode */
+    }
+
+    .settings-panel {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: #ffffff; /* Light background for settings panel */
+      color: #333333; /* Dark text in light mode */
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .settings-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333333; /* Dark text in light mode */
+    }
+
+    .settings-header button {
+      background: none;
+      border: none;
+      color: #333333; /* Dark text in light mode */
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .settings-header button:hover {
+      color: #666666; /* Dark hover text in light mode */
+      text-shadow: 0 0 10px rgba(102, 102, 102, 0.5);
+    }
+
+    .settings-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .setting-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .setting-item label {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #333333; /* Dark text in light mode */
+    }
+
+    .setting-item input,
+    .setting-item textarea,
+    .setting-item select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #ffffff; /* Light background in light mode */
+      color: #333333; /* Dark text in light mode */
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+      width: 100%;
+    }
+
+    .setting-item textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    #saveSettings {
+      background-color: #3b82f6;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #ffffff; /* White text in light mode */
+      font-size: 1rem;
+      transition: background-color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    #saveSettings:hover {
+      background-color: #2563eb;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .dark-mode {
+      background-color: #1a202c; /* Dark background */
+      color: #f7fafc; /* Light text */
+    }
+
+    .thinking-indicator {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      color: #666;
+      font-style: italic;
+      text-align: center;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.7;
+      }
+    }
